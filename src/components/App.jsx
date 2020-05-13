@@ -5,11 +5,11 @@ import logo from "../../asset/image/logo.png";
 
 import "./App.scss";
 
-const App = () => {
+const App = ({ openapi }) => {
     useEffect(() => {
         SwaggerUI({
             dom_id: "#swagger-ui",
-            url: "https://raw.githubusercontent.com/factorio-item-browser/api-server/master/api/openapi.yaml"
+            url: openapi,
         });
     }, []);
 

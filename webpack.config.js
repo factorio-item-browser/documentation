@@ -2,17 +2,37 @@ const { CleanWebpackPlugin } = require("clean-webpack-plugin");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const path = require("path");
+const { DefinePlugin } = require("webpack");
 
-module.exports = (env, argv) => {
-    const currentPath = path.join(__dirname);
-    const isProduction = argv.mode === "production";
+const PROJECT_DIR = path.join(__dirname);
+const BUILD_DIR = `${PROJECT_DIR}/build`
+const CONFIG = require(`${PROJECT_DIR}/config.json`);
+const IS_PRODUCTION = process.argv.indexOf("production") !== -1;
 
+/**
+ * Prepares the config for the DefinePlugin, recursively stringifying all values.
+ * @param {*} config
+ * @returns {*}
+ */
+function prepareConfigForDefinePlugin(config) {
+    if (typeof(config) !== "object") {
+        return JSON.stringify(config);
+    }
+
+    const result = {};
+    for (const [key, value] of Object.entries(config)) {
+        result[key] = prepareConfigForDefinePlugin(value);
+    }
+    return result;
+}
+
+module.exports = Object.entries(CONFIG).map(([pageName, pageConfig]) => {
     return {
-        entry: `${currentPath}/src/index.jsx`,
+        entry: `${PROJECT_DIR}/src/index.jsx`,
         output: {
-            path: `${currentPath}/build`,
-            publicPath: "/",
-            filename: isProduction ? "asset/js/[name].[hash].js" : "asset/js/[name].js",
+            path: `${BUILD_DIR}/${pageName}`,
+            publicPath: IS_PRODUCTION ? "./" : "/",
+            filename: "asset/js/[name].js",
         },
         resolve: {
             extensions: [".js", ".jsx", ".jpg", ".png"],
@@ -33,7 +53,7 @@ module.exports = (env, argv) => {
                         {
                             loader: MiniCssExtractPlugin.loader,
                             options: {
-                                hmr: !isProduction,
+                                hmr: !IS_PRODUCTION,
                             },
                         },
                         "css-loader",
@@ -47,7 +67,7 @@ module.exports = (env, argv) => {
                         {
                             loader: "image-webpack-loader",
                             options: {
-                                disable: !isProduction,
+                                disable: !IS_PRODUCTION,
                             },
                         },
                     ],
@@ -66,7 +86,7 @@ module.exports = (env, argv) => {
                         {
                             loader: "image-webpack-loader",
                             options: {
-                                disable: !isProduction,
+                                disable: !IS_PRODUCTION,
                             },
                         },
                     ],
@@ -75,17 +95,20 @@ module.exports = (env, argv) => {
         },
         plugins: [
             new CleanWebpackPlugin(),
+            new DefinePlugin(prepareConfigForDefinePlugin({
+                CONFIG: pageConfig,
+            })),
             new MiniCssExtractPlugin({
-                filename: isProduction ? "asset/css/[name].[hash].css" : "asset/css/[name].css",
+                filename: "asset/css/[name].css",
             }),
             new HtmlWebpackPlugin({
-                template: `${currentPath}/src/index.ejs`,
+                template: `${PROJECT_DIR}/src/index.ejs`,
             }),
         ],
         devServer: {
-            contentBase: "./build",
+            contentBase: "./build/",
             port: 8090,
             hot: true,
         },
     };
-};
+});

@@ -1,0 +1,11 @@
+{
+    "api": {
+        "openApiUrl": "https://raw.githubusercontent.com/factorio-item-browser/api-server/master/api/openapi.yaml"
+    },
+    "export-queue": {
+        "openApiUrl": "https://raw.githubusercontent.com/factorio-item-browser/export-queue-server/master/api/openapi.yaml"
+    },
+    "portal-api": {
+        "openApiUrl": "https://raw.githubusercontent.com/factorio-item-browser/portal-api-server/master/api/openapi.yaml"
+    }
+}
