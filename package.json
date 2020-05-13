@@ -1,0 +1,51 @@
+{
+    "name": "@factorio-item.browser/documention",
+    "description": "A small repository building the UIs to discover the APIs used by the Factorio Item Browser.",
+    "homepage": "https://github.com/factorio-item-browser/documentation",
+    "keywords": [
+        "Factorio Item Browser",
+        "FIB",
+        "documentation",
+        "swagger-ui"
+    ],
+    "license": "GPL-3.0-or-later",
+    "author": {
+        "name": "BluePsyduck",
+        "email": "bluepsyduck@gmx.com"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/factorio-item-browser/documentation.git"
+    },
+    "private": true,
+    "dependencies": {
+        "normalize-scss": "^7.0.1",
+        "react": "^16.13.1",
+        "react-dom": "^16.13.1",
+        "swagger-ui": "^3.25.2"
+    },
+    "devDependencies": {
+        "@babel/core": "^7.9.6",
+        "@babel/preset-env": "^7.9.6",
+        "@babel/preset-react": "^7.9.4",
+        "babel-loader": "^8.1.0",
+        "clean-webpack-plugin": "^3.0.0",
+        "copy-webpack-plugin": "^5.1.1",
+        "css-loader": "^3.5.3",
+        "file-loader": "^6.0.0",
+        "html-webpack-plugin": "^4.3.0",
+        "image-webpack-loader": "^6.0.0",
+        "mini-css-extract-plugin": "^0.9.0",
+        "node-sass": "^4.14.1",
+        "sass-loader": "^8.0.2",
+        "url-loader": "^4.1.0",
+        "webpack": "^4.43.0",
+        "webpack-cli": "^3.3.11",
+        "webpack-dev-server": "^3.11.0"
+    },
+    "main": "src/index.jsx",
+    "scripts": {
+        "build": "webpack --mode production",
+        "start": "webpack-dev-server --mode development"
+    }
+}

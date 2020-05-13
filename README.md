@@ -6,6 +6,8 @@ so that not every component repository has its own wiki and information are all 
  
 Please look into the wiki of this repository for a detailed documentation of how the whole thing works.
 
+This repository also doubles as generator for the customized Swagger UI files for the APIs, linked in the wiki.
+
 ## About
 
 The Factorio Item Browser, or short FIB, is a web-based browser of all the items and recipes of the 

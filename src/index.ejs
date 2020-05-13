@@ -1,0 +1,20 @@
+<%
+const title = "Factorio Item Browser";
+const color = "#165868";
+const faviconSizes = [64, 32];
+%>
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <title><%= title %></title>
+
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta name="theme-color" content="<%= color %>">
+
+        <% for (const size of faviconSizes) { %><link rel="icon" href="<%= require(`../asset/image/icon/icon-${size}.png`) %>" sizes="<%= size %>x<%= size %>" /><% } %>
+    </head>
+    <body>
+        <div id="app"></div>
+    </body>
+</html>
