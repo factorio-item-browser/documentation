@@ -52,9 +52,6 @@ module.exports = Object.entries(CONFIG).map(([pageName, pageConfig]) => {
                     use: [
                         {
                             loader: MiniCssExtractPlugin.loader,
-                            options: {
-                                hmr: !IS_PRODUCTION,
-                            },
                         },
                         "css-loader",
                         "sass-loader",

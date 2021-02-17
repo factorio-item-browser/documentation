@@ -4,7 +4,7 @@
 This repository is meant to be a centralized documentation of the Factorio Item Browser project and all its components,
 so that not every component repository has its own wiki and information are all over the place.
  
-Please look into the wiki of this repository for a detailed documentation of how the whole thing works.
+### Please look into the [wiki](https://github.com/factorio-item-browser/documentation/wiki) of this repository for a detailed documentation of how the whole thing works.
 
 This repository also doubles as generator for the customized Swagger UI files for the APIs, linked in the wiki.
 
