@@ -1,5 +1,5 @@
 {
-    "name": "@factorio-item.browser/documention",
+    "name": "@factorio-item.browser/documentation",
     "description": "A small repository building the UIs to discover the APIs used by the Factorio Item Browser.",
     "homepage": "https://github.com/factorio-item-browser/documentation",
     "keywords": [
