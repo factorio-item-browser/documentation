@@ -1,9 +1,9 @@
 {
-    "api": {
-        "openApiUrl": "https://raw.githubusercontent.com/factorio-item-browser/api-server/master/api/openapi.yaml"
-    },
     "combination-api": {
         "openApiUrl": "https://raw.githubusercontent.com/factorio-item-browser/combination-api-server/master/api/openapi.yaml"
+    },
+    "data-api": {
+        "openApiUrl": "https://raw.githubusercontent.com/factorio-item-browser/api-server/master/api/openapi.yaml"
     },
     "portal-api": {
         "openApiUrl": "https://raw.githubusercontent.com/factorio-item-browser/portal-api-server/master/api/openapi.yaml"
